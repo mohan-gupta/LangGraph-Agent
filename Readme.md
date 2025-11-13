@@ -53,3 +53,10 @@ To run this agent in your local machine, follow these steps:
    - First the user query goes through ```classify node```, this node will send the query into any one of the next 3 nodes based on the query classification.
    - for e.g., a query like: "What is the weather in Finland?", will go through the ```weather node```.
    - and a query like: "What is the embedding size of BERT model?", will go through the ```rag node```.
+
+8. <b>app.py</b>: This file containse the Streamlit app
+
+After you have followed the above steps, run the below command to start the application.
+```bash
+streamlit run app.py
+```
