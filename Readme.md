@@ -78,3 +78,10 @@ python -m streamlit run app.py
    run the ```create_dataset()``` in ```langsmith_eval.py```.
    
 4. Finally, run the ```langsmith_eval.py```.
+
+### Langsmith logs
+
+<img src="assets/langsmith eval (1).png"><br><br>
+<img src="assets/langsmith eval (2).png"><br><br>
+<img src="assets/langsmith eval (3).png"><br><br>
+<img src="assets/langsmith eval (4).png"><br><br>
