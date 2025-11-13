@@ -7,6 +7,9 @@ from src.llm_stack import llm
 from src.weather_api import get_weather_data
 from src.db_ops import vector_search
 
+# for langsmith testing
+# from langsmith import traceable
+
 
 class Location(TypedDict):
     location: str
@@ -46,6 +49,7 @@ class Agent:
         
         return response["response"]
 
+    # @traceable # for langsmith testing
     def classify_node(self, state: State) -> State:
         """classify user query: weather related or rag query"""
         
@@ -67,6 +71,7 @@ class Agent:
         # Store classification as a single dict in state
         return State(query_type=classification["query_type"])
 
+    # @traceable # for langsmith testing
     def weather_node(self, state: State) -> State:
         """get requested weather data"""
         structured_llm = llm.with_structured_output(Location)
@@ -94,6 +99,7 @@ class Agent:
         
         return State(response=response.content)
 
+    # @traceable # for langsmith testing
     def rag_node(self, state: State) -> State:
         """get requested context"""
         query = state["query"]
@@ -110,6 +116,7 @@ class Agent:
         
         return State(response=response.content)
 
+    # @traceable # for langsmith testing
     def check_node(self, state: State) -> State:
         """send message to try weather or rag document related query"""
         prompt = f"""

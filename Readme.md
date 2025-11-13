@@ -7,7 +7,7 @@ This agent is desigend using LangGraph, Qdrant and Google Gemini models.<br>
 To run this agent in your local machine, follow these steps:
 1. <b>Set-up the .env file</b>
    ```bash
-    GEMINI_API_KEY=<your google gemini api key>
+    GOOGLE_API_KEY=<your google gemini api key>
 
     WEATHER_API_KEY=<your open weather map api key>
 
@@ -59,4 +59,22 @@ To run this agent in your local machine, follow these steps:
 After you have followed the above steps, run the below command to start the application.
 ```bash
 streamlit run app.py
+
+# or try this command:
+python -m streamlit run app.py
 ```
+
+## Evaluation using Langsmith
+
+1. Uncomment ```@traceable``` decorator in ```agent.py``` file
+2. Add these environment variables:
+   ```bash
+   LANGSMITH_API_KEY=<langsmith api key>
+   LANGSMITH_PROJECT=<langsmith project id>
+   LANGSMITH_ENDPOINT=<langsmith endpoint>
+   LANGSMITH_TRACING=true
+   ```
+3. Create a dataset on langsmith platform or use langsmith sdk(I have used ```eval_dataset.json```).
+   run the ```create_dataset()``` in ```langsmith_eval.py```.
+   
+4. Finally, run the ```langsmith_eval.py```.

@@ -1,0 +1,7 @@
+[
+    {"inputs" : {"query": "Should I invest in bitcoin."}, "outputs" : {"response": " I can only help you with weather-related or Transformer models-related queries."}},
+    {"inputs" : {"query": "Explain Transformers in brief."}, "outputs" : {"response": "Transformers are deep learning models designed to handle sequential data (like text) using a mechanism called self-attention.\n\nInstead of processing data step by step like RNNs, Transformers look at all tokens in a sequence at once and learn which words are most relevant to each other.\n\nThey consist mainly of encoder and decoder blocks (in the original architecture), each built from layers of self-attention and feed-forward networks.\n\nTransformers power models like BERT, GPT, and many modern AI systems because they handle long-range dependencies efficiently and scale well with large data."}},
+    {"inputs" : {"query": "What is the embedding size in BERT?"}, "outputs" : {"response": "In BERT, the embedding size is the dimensionality of each token’s representation:\n\nBERT Base: 768 dimensions\n\nBERT Large: 1024 dimensions\n\nLarger embeddings capture more information but also increase computational cost."}},
+    {"inputs" : {"query": "What is the temperature in New Delhi?"}, "outputs" : {"response": "The temperature in New Delhi is 16.09°C."}},
+    {"inputs" : {"query": "What is the weather in Finland?"}, "outputs" : {"response": "The weather in Finland is overcast clouds with a temperature of -1.55°C. The wind is blowing at 5.55 meters per second from the west."}}
+]
