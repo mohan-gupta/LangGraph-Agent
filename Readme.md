@@ -70,6 +70,8 @@ for running the test just run the following command.
 ```bash
 pytest
 ```
+if all the tests are successfull, you will get the following response:<br>
+<img src="assets/pytest.png">
 
 ## Evaluation using Langsmith
 
