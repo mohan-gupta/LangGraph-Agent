@@ -3,8 +3,6 @@ from uuid import uuid4
 from qdrant_client import QdrantClient
 from qdrant_client.http.models import VectorParams, Distance, PointStruct
 
-from langchain_qdrant import QdrantVectorStore
-
 from src.cfg import qdrant_api_key, qdrant_cluster_url
 from src.llm_stack import embedding_model
 
@@ -40,13 +38,12 @@ def insert_document(doc):
 def vector_search(query: str, top_k:int = 3):
     query_embedding = embedding_model.embed_query(query)
     
-    search_results = qdrant_client.search(
+    search_results = qdrant_client.query_points(
         collection_name=collection_name,
-        query_vector=query_embedding,
+        query=query_embedding,
         limit=top_k
     )
-    
-    context = [item.payload["text"] for item in search_results]
+    context = [point.payload["text"] for point in search_results.points]
     
     return context
 

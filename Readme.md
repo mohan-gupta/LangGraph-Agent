@@ -64,6 +64,13 @@ streamlit run app.py
 python -m streamlit run app.py
 ```
 
+## Test using Pytest
+```test_agent.py```: contains simple tests for the agent nodes, weather api and vector search.<br>
+for running the test just run the following command.
+```bash
+pytest
+```
+
 ## Evaluation using Langsmith
 
 1. Uncomment ```@traceable``` decorator in ```agent.py``` file
