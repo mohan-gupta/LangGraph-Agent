@@ -2,7 +2,9 @@
 
 This agent, helps you with weather related queries, and it also helps you with queries related to technical topics like Transformers, BERT, GPT and T5 models.<br><br>
 
-This agent is desigend using LangGraph, Qdrant and Google Gemini models.<br>
+<img src="assets/app.png"><br>
+
+This agent is desigend using ```LangGraph```, ```Qdrant``` and ```Google Gemini models```.<br>
 
 To run this agent in your local machine, follow these steps:
 1. <b>Set-up the .env file</b>
@@ -31,9 +33,9 @@ To run this agent in your local machine, follow these steps:
 3. <b>load your env variables:</b>
    In the ```cfg.py``` file, I have loaded the environment variables.
 
-4. <b>llm_stack.py:</b> In this file, I have instantiated the llm and embedding model.
+4. <b>```llm_stack.py```:</b> In this file, I have instantiated the llm and embedding model.
 
-5. <b>weather_api.py:</b> In this file, I have defined the function to fetch weather details for a location.
+5. <b>```weather_api.py```:</b> In this file, I have defined the function to fetch weather details for a location.
 
 6. <b>set-up the VectorDB:</b>
    - In the documents folder, add the pdf files on which you want to perform RAG.
@@ -48,13 +50,13 @@ To run this agent in your local machine, follow these steps:
     #Then, run the pdf_pipeline.py file to create chunks, chunk embeddings, and this file will upload the embeddings to our vectordb.
     pdf_pipeline.py
     ```
-7. <b>agent.py</b>: This file contains the LangGraph Agent<br>
+7. <b>```agent.py```</b>: This file contains the LangGraph Agent<br>
    <img src="assets/graph.png"><br><br>
    - First the user query goes through ```classify node```, this node will send the query into any one of the next 3 nodes based on the query classification.
    - for e.g., a query like: "What is the weather in Finland?", will go through the ```weather node```.
    - and a query like: "What is the embedding size of BERT model?", will go through the ```rag node```.
 
-8. <b>app.py</b>: This file containse the Streamlit app
+8. <b>```app.py```</b>: This file containse the Streamlit app
 
 After you have followed the above steps, run the below command to start the application.
 ```bash
@@ -65,7 +67,7 @@ python -m streamlit run app.py
 ```
 
 ## Test using Pytest
-```test_agent.py```: contains simple tests for the agent nodes, weather api and vector search.<br>
+```tests/test_agent.py```: contains simple tests for the agent nodes, weather api and vector search.<br>
 for running the test just run the following command.
 ```bash
 pytest
@@ -83,8 +85,8 @@ if all the tests are successfull, you will get the following response:<br>
    LANGSMITH_ENDPOINT=<langsmith endpoint>
    LANGSMITH_TRACING=true
    ```
-3. Create a dataset on langsmith platform or use langsmith sdk(I have used ```eval_dataset.json```).
-   run the ```create_dataset()``` in ```langsmith_eval.py```.
+3. Create a dataset on langsmith platform or use langsmith sdk (I have used ```eval_dataset.json```).<br>
+   Run the ```create_dataset()``` in ```langsmith_eval.py```.
    
 4. Finally, run the ```langsmith_eval.py```.
 

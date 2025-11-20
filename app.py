@@ -6,11 +6,32 @@ agent = Agent()
     
 
 st.title('LangGraph Agent')
-st.write("This Agent will assist with weather related query.")
-st.write("It will also assist you with Transformer based models like BERT, GPT and T5 related doubts.")
+st.html("<p>This Agent will assist with weather related query.<br>It will also assist you with Transformer based models like BERT, GPT and T5 related doubts.</p>")
 
-prompt = st.chat_input("Hi, how can I assist you")
-if prompt:
-    st.write(f"User: {prompt}")
+
+# Initialize chat history
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+
+# Display chat messages from history on app rerun
+for message in st.session_state.messages:
+    with st.chat_message(message["role"]):
+        st.markdown(message["content"])
+        
+# React to user input
+if prompt := st.chat_input("Hi, how can I help you"):
+    # Display user message in chat message container
+    with st.chat_message("user"):
+        st.markdown(prompt)
+    # Add user message to chat history
+    st.session_state.messages.append({"role": "user", "content": prompt})
+
+
+    # Display assistant response in chat message container
     agent_response = agent.run(prompt)
-    st.write(f"Agent: {agent_response}")
+    response = f"Agent: {agent_response}"
+
+    with st.chat_message("assistant"):
+        st.markdown(response)
+    # Add assistant response to chat history
+    st.session_state.messages.append({"role": "assistant", "content": response})
