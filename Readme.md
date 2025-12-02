@@ -30,12 +30,11 @@ To run this agent in your local machine, follow these steps:
     # install dependencies
     uv pip install -r requirements.txt
    ```
-3. <b>load your env variables:</b>
-   In the ```cfg.py``` file, I have loaded the environment variables.
+3. <b>```src/cfg.py```:</b>load the environment variables.
 
-4. <b>```llm_stack.py```:</b> In this file, I have instantiated the llm and embedding model.
+4. <b>```src/llm_stack.py```:</b> Instantiate the llm and embedding model.
 
-5. <b>```weather_api.py```:</b> In this file, I have defined the function to fetch weather details for a location.
+5. <b>```src/weather_api.py```:</b> Script to fetch the weather data using the open weather map API.
 
 6. <b>set-up the VectorDB:</b>
    - In the documents folder, add the pdf files on which you want to perform RAG.
@@ -47,10 +46,11 @@ To run this agent in your local machine, follow these steps:
     # First run db_ops.py file to set up the VectorDB
     db_ops.py
 
-    #Then, run the pdf_pipeline.py file to create chunks, chunk embeddings, and this file will upload the embeddings to our vectordb.
+    #Then, run the pdf_pipeline.py file to create chunks, chunk embeddings,
+    and this file will upload the embeddings to our vectordb.
     pdf_pipeline.py
     ```
-7. <b>```agent.py```</b>: This file contains the LangGraph Agent<br>
+7. <b>```src/agent.py```</b>: This file contains the LangGraph Agent<br><br>
    <img src="assets/graph.png"><br><br>
    - First the user query goes through ```classify node```, this node will send the query into any one of the next 3 nodes based on the query classification.
    - for e.g., a query like: "What is the weather in Finland?", will go through the ```weather node```.
@@ -66,7 +66,7 @@ streamlit run app.py
 python -m streamlit run app.py
 ```
 
-## Test using Pytest
+## Pytest
 ```tests/test_agent.py```: contains simple tests for the agent nodes, weather api and vector search.<br>
 for running the test just run the following command.
 ```bash
